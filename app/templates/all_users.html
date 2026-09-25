@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}FitBuddy - All Users{% endblock %}
+{% block content %}
+<div class="page-container"><div class="page-header"><span class="badge">ADMIN / COACH</span><h1>All Users</h1><p>View registered users and their original and updated workout plans.</p></div>
+{% if users %}<div class="users-table-wrapper"><table class="users-table"><thead><tr><th>User ID</th><th>Name</th><th>Age</th><th>Weight</th><th>Goal</th><th>Intensity</th><th>Original Plan</th><th>Updated Plan</th><th>Action</th></tr></thead><tbody>
+{% for user in users %}<tr><td>{{ user.user_id }}</td><td>{{ user.username }}</td><td>{{ user.age }}</td><td>{{ user.weight }} kg</td><td>{{ user.goal }}</td><td>{{ user.intensity }}</td>
+<td>{% if user.original_plan %}<details><summary>View plan</summary><pre>{{ user.original_plan }}</pre></details>{% else %}No plan{% endif %}</td>
+<td>{% if user.updated_plan %}<details><summary>View updated plan</summary><pre>{{ user.updated_plan }}</pre></details>{% else %}No update{% endif %}</td>
+<td><form action="/delete-user/{{ user.user_id }}" method="post" onsubmit="return confirm('Delete this user?');"><button type="submit" class="delete-button">Delete</button></form></td></tr>{% endfor %}</tbody></table></div>
+{% else %}<div class="empty-state"><h2>No users yet</h2><p>Generate your first FitBuddy plan.</p><a href="/" class="primary-button">Create Plan</a></div>{% endif %}</div>
+{% endblock %}

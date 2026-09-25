@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}FitBuddy{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><a href="/" class="logo">FitBuddy</a><div class="nav-links"><a href="/">Home</a><a href="/view-all-users">Users</a><a href="/docs">API Docs</a></div></div></nav>
+<main>{% block content %}{% endblock %}</main>
+<footer><p>FitBuddy - AI Fitness Plan Generator</p></footer>
+</body>
+</html>

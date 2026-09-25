@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}FitBuddy - AI Fitness Plan Generator{% endblock %}
+{% block content %}
+<section class="hero"><div class="container"><div class="hero-card">
+<div class="hero-title"><span class="badge">AI FITNESS</span><h1>FitBuddy</h1><p>Your Personalized AI Fitness Plan</p></div>
+<form action="/generate-workout" method="post" class="fitness-form"><div class="form-grid">
+<div class="form-group"><label>Name</label><input type="text" name="username" placeholder="Enter your name" required></div>
+<div class="form-group"><label>User ID</label><input type="text" name="user_id" placeholder="Example: FB001" required></div>
+<div class="form-group"><label>Age</label><input type="number" name="age" min="1" max="120" required></div>
+<div class="form-group"><label>Weight (kg)</label><input type="number" name="weight" min="1" max="500" step="0.1" required></div>
+<div class="form-group"><label>Fitness Goal</label><select name="goal" required><option value="">Select goal</option><option>Weight Loss</option><option>Muscle Gain</option><option>General Wellness</option><option>Flexibility</option><option>Endurance</option></select></div>
+<div class="form-group"><label>Workout Intensity</label><select name="intensity" required><option value="">Select intensity</option><option>Low</option><option>Medium</option><option>High</option></select></div>
+</div><button type="submit" class="primary-button">Generate 7-Day Plan</button></form>
+<div class="feature-row"><div class="feature"><strong>7 Days</strong><span>Personalized workouts</span></div><div class="feature"><strong>AI</strong><span>Gemini-powered generation</span></div><div class="feature"><strong>Feedback</strong><span>Update your plan</span></div></div>
+</div></div></section>
+{% endblock %}
